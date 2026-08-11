@@ -1,0 +1,27 @@
+<section class="employee-list-page">
+  <div class="page-header">
+    <h1>Employee List</h1>
+    <p>View the current employee roster.</p>
+  </div>
+
+  <div class="employee-card">
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Email</th>
+          <th>Department</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.role }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.department }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
