@@ -19,16 +19,20 @@ describe('EmployeeList', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the employee list heading and employee details', () => {
+  it('should render the employee list heading and all employee details from the component data', () => {
     const compiled = fixture.nativeElement as HTMLElement;
+    const rows = compiled.querySelectorAll('tbody tr');
 
     expect(compiled.querySelector('h1')?.textContent).toContain('Employee List');
-    expect(compiled.textContent).toContain('Alice Johnson');
-    expect(compiled.textContent).toContain('Software Engineer');
-    expect(compiled.textContent).toContain('alice.johnson@example.com');
-    expect(compiled.textContent).toContain('Engineering');
+    expect(rows.length).toBe(component.employees.length);
 
-    const tableRows = compiled.querySelectorAll('tbody tr');
-    expect(tableRows.length).toBe(3);
+    component.employees.forEach((employee, index) => {
+      const cells = rows[index].querySelectorAll('td');
+
+      expect(cells[0]?.textContent).toContain(employee.name);
+      expect(cells[1]?.textContent).toContain(employee.role);
+      expect(cells[2]?.textContent).toContain(employee.email);
+      expect(cells[3]?.textContent).toContain(employee.department);
+    });
   });
 });
