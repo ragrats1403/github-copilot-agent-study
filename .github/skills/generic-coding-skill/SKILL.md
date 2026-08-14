@@ -1,5 +1,5 @@
 ---
-name: generic-coding
+name: generic-coding-skill
 description: Plan and implement coding work such as features, modules, screens, components, APIs, or documentation changes by adapting to the detected repository structure and technology stack.
 ---
 
@@ -84,6 +84,14 @@ After approval:
 
 Use this format before implementation:
 
+## Boundary With Testing Workflow
+
+This skill may identify that automated tests are needed, but it should not create or modify automated test files unless the user explicitly asks for coding and testing together.
+
+For the OD-002 workflow, automated test creation is handled by the Generic Testing Skill.
+
+When planning a coding task, list test needs under the Validation Plan or Follow-up Testing Needs section instead of proposing `.spec.ts`, `.test.ts`, JUnit, or other automated test files as part of the coding implementation.
+
 ## Repository Understanding
 
 - Detected language:
@@ -137,3 +145,5 @@ Use this format before implementation:
 Stop after this plan.
 
 Do not create, modify, delete, or run destructive commands until the user approves the plan.
+
+Do not include automated test files in Proposed File Changes unless the user explicitly asks to include tests in the coding implementation.
