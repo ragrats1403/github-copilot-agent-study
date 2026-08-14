@@ -2,9 +2,21 @@
 description: Create or update automated tests by adapting to the detected repository structure, technology stack, and existing test framework.
 ---
 
-# Generic Automated Test Creation Prompt
+# Generic Testing Prompt
 
 Create or update automated tests for the requested code changes.
+
+In this workflow, "Testing" refers to automated test creation and automated test maintenance.
+
+Examples include:
+
+- Angular Karma/Jasmine `.spec.ts` tests
+- React Jest/Vitest `.test.ts` or `.spec.ts` tests
+- Spring Boot JUnit/Mockito tests
+- Node.js Jest tests
+- Backend integration tests where applicable
+
+Do not create manual QA test cases unless the user explicitly asks for manual test scenarios.
 
 Do not modify files until the user approves the test plan.
 
@@ -38,7 +50,7 @@ Identify:
 
 - Follow the existing test framework and project conventions.
 - Do not introduce a new test library unless clearly required.
-- Prefer small, focused tests.
+- Prefer small, focused automated tests.
 - Test behavior, not implementation details.
 - Update stale tests when behavior intentionally changed.
 - Add tests for new behavior when reasonable.
@@ -81,6 +93,22 @@ Identify:
 - Test command:
 - Build command:
 - Expected result:
+
+## Validation Result
+
+After running tests, report:
+
+- Test command used
+- Test status: Passed / Failed / Inconclusive
+- Exact terminal summary
+- Number of tests executed
+- Number of tests passed
+- Number of tests failed
+- Build result
+- Key insights
+- Remaining limitations
+
+Do not claim tests passed unless the terminal output clearly shows a final success summary such as `TOTAL: X SUCCESS`.
 
 ## Approval Required
 
